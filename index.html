@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Tower Genetic Algorithm by wdespain</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Tower Genetic Algorithm</h1>
+      <h2 class="project-tagline">Made for CS 5600, this project tries to build a tower using a genetic algorithm.</h2>
+      <a href="https://github.com/wdespain/towerGeneticAlgorithm" class="btn">View on GitHub</a>
+      <a href="https://github.com/wdespain/towerGeneticAlgorithm/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/wdespain/towerGeneticAlgorithm/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h3>
+<a id="absract" class="anchor" href="#absract" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Absract</h3>
+
+<p>Genetic Algorithms can find things that humans may not have been able to design or think of. </p>
+
+<p>I wanted to see what would happen when I applied this to structures (like bridges and towers). This program takes randomly placed beams and sees how well they perform and can find stable structures.</p>
+
+<h3>
+<a id="problem-description" class="anchor" href="#problem-description" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Problem Description</h3>
+
+<p>Given a random input of beams, drop a shape on them and see how well they can hold it. The goal is to find a structure that can hold the shape without wobbling too much.</p>
+
+<h3>
+<a id="method" class="anchor" href="#method" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Method</h3>
+
+<p>Genetic Algorithms take random input, test them, take the best, and the breed them to find the next generation. As it continues to do this, the scores should get better. My program follows this simple structure.</p>
+
+<ol>
+<li><p>Random Input
+My program gives each beam a random placement, within a bound, and angle. This is the starting point for the algorithm. </p></li>
+<li><p>Test
+The most important part of the testing phase in the fitness function. This fitness criteria for this program is simply the height of the shape.</p></li>
+<li><p>Breed
+The program then gives each structure a weighted percentage based on it's fitness score and then randomly picks two structures to breed. I use two point crossover meaning that two points on the chromosome are chosen and mixed.</p></li>
+<li><p>Mutate
+Mutations can also happen. If a mutation occurs the beam may: be given a new position or angle, or change length.</p></li>
+<li><p>Run Again
+The program then goes back to step 2 and does it all over again.</p></li>
+</ol>
+
+<h3>
+<a id="results" class="anchor" href="#results" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Results</h3>
+
+<p>While the towers did get a little taller, they do not look very tower like. The fitness function incentivized holding the shape as high as possible, it did not incentivize stability.</p>
+
+<p>Even though the best scores did not go up very much, the average and minimum score went up.</p>
+
+<h3>
+<a id="conclusions" class="anchor" href="#conclusions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Conclusions</h3>
+
+<p>This program did not do what I was expecting. I was expecting to see something taller with more stability.</p>
+
+<p>The height did not go up very much and the towers did not find stability, even sometimes with beams going off to the side and not contributing to the tower.</p>
+
+<p>The ultimate problem was not starting out with something usable and not having a fitness function that incentivized stability.</p>
+
+<h3>
+<a id="things-to-try-in-the-future" class="anchor" href="#things-to-try-in-the-future" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Things to Try in the Future</h3>
+
+<p>Starting with randomly placed beams was not the best way to start it off, it did not find structure from nothing. If I were to do this again, I would start off with sudo-random inputs that had some structure and to see if the algorithm would be able to improve upon it.</p>
+
+<p>I would also find a better fitness algorithm, just having the height as the fitness function was not enough. Computing in the movement in the beams and also adding points for connectivity would also be good things to try.</p>
+
+<p>In addition, I would also change the breeding to take out the bottom 5% and not let them breed. In the beginning, towers with a score of zero would have no chance of breeding, but as the bottom score went up, even the worst scoring ones had a chance to breed.</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/wdespain/towerGeneticAlgorithm">Tower Genetic Algorithm</a> is maintained by <a href="https://github.com/wdespain">wdespain</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
